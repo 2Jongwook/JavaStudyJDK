@@ -33,4 +33,22 @@ public class Member {
 
         return memberName + "회원님의 아이디는" + memberId + "입니다.";
     }
+
+    @Override
+    public int hashCode() {
+        return memberId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {     //String API문서를 보면 equals가 있다.
+        if(obj instanceof Member){
+            Member member = (Member)obj;
+
+            if(this.memberId == member.memberId){
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
 }
