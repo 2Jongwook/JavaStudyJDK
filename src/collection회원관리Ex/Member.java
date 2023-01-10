@@ -1,6 +1,6 @@
 package collection회원관리Ex;
 
-public class Member {
+public class Member implements Comparable<Member>{
 
     private int memberId;
     private String memberName;
@@ -50,5 +50,11 @@ public class Member {
             return false;
         }
         return false;
+    }
+
+    @Override
+    public int compareTo(Member member) {   // TreeSet을 구성하기 위해 기준을 정하는 comparable인터페이스를 사용해야한다.
+        return (this.memberId - member.memberId);   // 아이디를 기준으로 오름차순 정렬을 해준다.
+        //return (this.memberId - member.memberId) * (-1); 을 해주면 내림차순 정렬
     }
 }
